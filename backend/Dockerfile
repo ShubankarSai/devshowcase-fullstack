@@ -2,9 +2,6 @@ FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
-COPY . .
+COPY target/backend-0.0.1-SNAPSHOT.jar app.jar
 
-RUN chmod +x mvnw
-RUN ./mvnw clean package -DskipTests
-
-CMD ["java", "-jar", "target/backend-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "app.jar"]
