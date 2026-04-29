@@ -1,23 +1,24 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import api from "../services/api";
 
 function PortfolioPage() {
   const { email } = useParams();
   const [data, setData] = useState(null);
 
+  //define function FIRST
+  const fetchPortfolio = useCallback(async () => {
+    try {
+      const response = await api.get(`/projects/portfolio/${email}`);
+      setData(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [email]);
+
   useEffect(() => {
     fetchPortfolio();
-  }, []);
-
-  const fetchPortfolio = async () => {
-    try {
-      const res = await api.get(`/projects/portfolio/${email}`);
-      setData(res.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  }, [fetchPortfolio]);
 
   const handleView = async (id) => {
     await api.get(`/projects/${id}`);
