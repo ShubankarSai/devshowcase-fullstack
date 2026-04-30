@@ -5,6 +5,8 @@ function ProfilePage() {
   const [form, setForm] = useState({
     name: "",
     password: "",
+    bio: "",
+    githubLink: "",
   });
 
   const handleChange = (e) => {
@@ -16,8 +18,7 @@ function ProfilePage() {
       const email = localStorage.getItem("email");
 
       await api.put("/users/update", {
-        name: form.name,
-        password: form.password,
+        ...form,
         email: email,
       });
 
@@ -45,7 +46,7 @@ function ProfilePage() {
           background: "#ffffff",
           padding: "35px",
           borderRadius: "12px",
-          width: "360px",
+          width: "380px",
         }}
       >
         <h3 className="text-center mb-4 fw-bold">Edit Profile</h3>
@@ -57,15 +58,33 @@ function ProfilePage() {
           onChange={handleChange}
         />
 
+        <textarea
+          className="form-control mb-3"
+          name="bio"
+          placeholder="Bio (e.g., Full Stack Developer...)"
+          onChange={handleChange}
+        />
+
         <input
           className="form-control mb-3"
+          name="githubLink"
+          placeholder="GitHub Profile Link"
+          onChange={handleChange}
+        />
+
+        <input
+          className="form-control mb-2"
           type="password"
           name="password"
           placeholder="New Password"
           onChange={handleChange}
         />
 
-        <button className="btn btn-primary w-100" onClick={handleUpdate}>
+        <small style={{ color: "gray" }}>
+          Leave password empty if you don’t want to change it
+        </small>
+
+        <button className="btn btn-primary w-100 mt-3" onClick={handleUpdate}>
           Update Profile
         </button>
       </div>
