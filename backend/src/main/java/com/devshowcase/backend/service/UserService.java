@@ -119,6 +119,8 @@ public class UserService {
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         user.setName(request.getName());
+        user.setBio(request.getBio());
+        user.setGithubLink(request.getGithubLink());
 
         if (request.getPassword() != null && !request.getPassword().isEmpty()) {
             user.setPassword(passwordEncoder.encode(request.getPassword()));
