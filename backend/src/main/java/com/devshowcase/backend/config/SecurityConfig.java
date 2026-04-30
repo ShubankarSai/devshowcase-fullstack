@@ -37,8 +37,9 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
             	.requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
             	.requestMatchers("/").permitAll()
-                .requestMatchers(HttpMethod.PUT, "/api/users/update").authenticated()
                 .requestMatchers("/api/users/login").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/users").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/api/users/update").authenticated()
                 .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
                 .requestMatchers(HttpMethod.PUT, "/api/projects/**").authenticated()
                 .requestMatchers(HttpMethod.GET, "/api/projects").permitAll()
