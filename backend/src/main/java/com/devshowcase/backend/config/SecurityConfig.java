@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.PUT, "/api/users/update").authenticated()
                 .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
                 .requestMatchers(HttpMethod.PUT, "/api/projects/**").authenticated()
+                .requestMatchers(HttpMethod.POST, "/api/projects").authenticated()
                 .requestMatchers(HttpMethod.GET, "/api/projects").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/projects/*").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/projects/portfolio/**").permitAll()
