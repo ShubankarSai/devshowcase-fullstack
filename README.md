@@ -112,11 +112,11 @@ GET /api/projects/portfolio/{email} → Public portfolio
 
 Shubhankar Sai  
 
-GitHub: https://github.com/YOUR_USERNAME  
-LinkedIn: Add your LinkedIn link here  
+GitHub: https://github.com/ShubankarSai 
+LinkedIn: https://www.linkedin.com/in/shubankarsaik/ 
 
 ---
 
 ## Notes
 
-This project was built as part of full-stack development practice with a focus on building a real-world application combining backend APIs, authentication, and a responsive frontend.
+This project was built as part of a full-stack development practice, focusing on a real-world application that combines backend APIs, authentication, and a responsive frontend.
