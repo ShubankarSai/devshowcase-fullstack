@@ -1,4 +1,3 @@
-const BASE_URL =
-  "https://miraculous-communication-production-7903.up.railway.app";
+const BASE_URL = "https://devshowcase-fullstack.onrender.com";
 
 export default BASE_URL;
